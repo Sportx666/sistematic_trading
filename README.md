@@ -1,0 +1,1 @@
+# sistematic_trading
