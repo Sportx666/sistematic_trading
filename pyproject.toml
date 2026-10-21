@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "systrade"
+version = "0.1.0"
+description = "Research and backtesting environment for long-only, daily, swing-trading strategies on US stocks and liquid ETFs."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Sportx666" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "pandas-stubs>=2.2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/systrade"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+markers = [
+    "slow: long-running tests (deselect with -m 'not slow')",
+    "network: tests that need internet access (never run in CI)",
+]
+
+[tool.coverage.run]
+source = ["systrade"]
+branch = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+    "PD",  # pandas-vet
+    "NPY", # numpy-specific rules
+    "S",   # flake8-bandit (security)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]  # assert is fine in tests
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = "src"
+packages = ["systrade"]
