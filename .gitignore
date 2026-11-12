@@ -1,0 +1,44 @@
+# --- Secrets: never commit credentials ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*secret*
+*credential*
+secrets/
+
+# --- Market data and run outputs (re-downloadable / regenerable) ---
+data/*
+!data/README.md
+results/
+reports/output/
+ledger/
+*.parquet
+*.feather
+*.h5
+*.sqlite
+*.db
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Editors / OS ---
+.idea/
+.vscode/
+.DS_Store
