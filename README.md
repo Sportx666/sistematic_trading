@@ -75,6 +75,7 @@ data/                  local data cache (gitignored)
 ## Documentation
 
 - [Architecture](docs/architecture.md)
+- [Market data](docs/data.md): cache, adjustments, survivorship, free-data limits
 - [Research standards](docs/research_standards.md): how to avoid fooling yourself
 - [Development workflow](docs/workflow.md): issue → PR → review
 - [Strategy specs](strategies/README.md) · [Journal](journal/README.md) · [Progress tracker](progress/TRACKER.md)
