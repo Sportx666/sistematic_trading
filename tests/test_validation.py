@@ -1,8 +1,7 @@
-from tests.market_fixtures import bar, known_split_dividend
-
 from systrade.data.adjust import build_history
 from systrade.data.model import SymbolHistory
 from systrade.data.validate import validate_history
+from tests.market_fixtures import bar, known_split_dividend
 
 _INJECTED = frozenset(
     {
