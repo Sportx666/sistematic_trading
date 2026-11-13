@@ -12,6 +12,8 @@ authors = [{ name = "Sportx666" }]
 dependencies = [
     "numpy>=1.26",
     "pandas>=2.2",
+    "pyarrow>=14",
+    "yfinance>=0.2.54",
 ]
 
 [project.optional-dependencies]
@@ -29,6 +31,7 @@ packages = ["src/systrade"]
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-ra --strict-markers --strict-config"
 markers = [
     "slow: long-running tests (deselect with -m 'not slow')",
@@ -66,3 +69,7 @@ python_version = "3.11"
 strict = true
 mypy_path = "src"
 packages = ["systrade"]
+
+[[tool.mypy.overrides]]
+module = ["yfinance", "yfinance.*"]
+ignore_missing_imports = true

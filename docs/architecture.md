@@ -11,7 +11,7 @@ The pipeline flows one way. Each stage is a separate sub-package of `systrade` w
 
 | Stage | Input | Output | Key rule |
 |---|---|---|---|
-| `data` | provider + symbols + dates | validated OHLCV (raw + adjusted) | documented corporate-action handling |
+| `data` | provider + symbols + dates | validated OHLCV (raw + adjusted) | signals use adjusted prices; fills and P&L use raw prices plus the action table ([data](data.md)) |
 | `strategies` | OHLCV up to day *t* | target signal per symbol at close *t* | pure function; no future data |
 | `risk` | signals, portfolio state | sized and approved orders, or rejections | same checks in backtest and paper trading |
 | `backtest` | orders, next-day prices, cost model | fills, positions, equity curve, trades | fill at *t+1* open or later; costs always on |
